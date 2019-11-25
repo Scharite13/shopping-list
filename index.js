@@ -17,9 +17,20 @@ $("#js-shopping-list-form").submit( function(event){
       
 });
 
-$('.shopping-list').on('click', '.shopping-item-toggle', function(event) {
-    $(this).closest(".shopping-item").toggleClass("shopping-item__checked");
-  });
+$('.shopping-list').on('click', '.shopping-item-toggle', function(event){
+    let shoppingItemLabelDiv = $($(this).parent().parent().children('.shopping-item')[0])
+    shoppingItemLabelDiv.toggleClass('shopping-item__checked');
+
+});
+
+$('.shopping-list').on('click', '.shopping-item-delete', function(event){
+    let shoppingItemLabelDiv = $($(this).parent().parent())
+    shoppingItemLabelDiv.remove("li");
+
+});
+//$('.shopping-list').on('click', '.shopping-item-toggle', function(event) {
+   // $(this).closest(".shopping-item").toggleClass("shopping-item__checked");
+  //});
 /*$( function (){
     $(".shopping-item-toggle").on("click", function (event){
         $(event.currentTarget).toggleClass("shopping-item__checked");
