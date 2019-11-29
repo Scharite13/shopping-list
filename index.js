@@ -1,6 +1,10 @@
 $("#js-shopping-list-form").submit( function(event){
     event.preventDefault();
     let item = $("#shopping-list-entry").val();
+    if (item == ""){
+      alert("Please enter item.");
+      $("#shopping-list-entry").focus;
+    };
     $(".shopping-list").append(`<li>
         <span class="shopping-item"> ${item} </span>
         <div class="shopping-item-controls">
@@ -16,6 +20,7 @@ $("#js-shopping-list-form").submit( function(event){
     $("#shopping-list-entry").val('');
       
 });
+
 
 $('.shopping-list').on('click', '.shopping-item-toggle', function(event){
     let shoppingItemLabelDiv = $($(this).parent().parent().children('.shopping-item')[0])
